@@ -3,34 +3,29 @@ using System;
 using AuctionService.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AuctionService.Data.Migrations
+namespace AuctionService.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    partial class AuctionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240928155429_intial")]
+    partial class intial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-<<<<<<< HEAD
-                .HasAnnotation("ProductVersion", "7.0.0")
-=======
                 .HasAnnotation("ProductVersion", "8.0.0")
->>>>>>> 2adb611 (updating the delete)
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-<<<<<<< HEAD
-            modelBuilder.Entity("AuctionService.Entities.Auction", b =>
-=======
             modelBuilder.Entity("AuctionService.Models.Auction", b =>
->>>>>>> 2adb611 (updating the delete)
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,11 +63,7 @@ namespace AuctionService.Data.Migrations
                     b.ToTable("Auctions");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("AuctionService.Entities.Item", b =>
-=======
             modelBuilder.Entity("AuctionService.Models.Item", b =>
->>>>>>> 2adb611 (updating the delete)
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -107,30 +98,18 @@ namespace AuctionService.Data.Migrations
                     b.ToTable("Items");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("AuctionService.Entities.Item", b =>
-                {
-                    b.HasOne("AuctionService.Entities.Auction", "Auction")
-                        .WithOne("Item")
-                        .HasForeignKey("AuctionService.Entities.Item", "AuctionId")
-=======
             modelBuilder.Entity("AuctionService.Models.Item", b =>
                 {
                     b.HasOne("AuctionService.Models.Auction", "Auction")
                         .WithOne("Item")
                         .HasForeignKey("AuctionService.Models.Item", "AuctionId")
->>>>>>> 2adb611 (updating the delete)
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Auction");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("AuctionService.Entities.Auction", b =>
-=======
             modelBuilder.Entity("AuctionService.Models.Auction", b =>
->>>>>>> 2adb611 (updating the delete)
                 {
                     b.Navigation("Item");
                 });
